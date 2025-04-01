@@ -1,3 +1,31 @@
+# Data source for Ubuntu AMI
+data "aws_ami" "ubuntu-ami" {
+  most_recent = true
+  owners      = ["099720109477"] # Canonical (Ubuntu) Official AMI Owner ID
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+  }
+}
+
+# Generate SSH key
+resource "tls_private_key" "rds_instance_key" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+resource "aws_key_pair" "rds_instance_key" {
+  key_name   = "KritagyaTerraform-aurora-db-credentials"
+  public_key = tls_private_key.rds_instance_key.public_key_openssh
+}
+
+# Save private key locally
+resource "local_file" "private_key" {
+  filename        = "${path.module}/KritagyaTerraform-aurora-db-credentials.pem"
+  content         = tls_private_key.rds_instance_key.private_key_pem
+  file_permission = "0600"
+}
 
 resource "aws_instance" "rds_connector" {
   ami                         = data.aws_ami.ubuntu-ami.id
@@ -54,3 +82,4 @@ resource "aws_instance" "rds_connector" {
     Name = "rds_connector"
   }
 }
+

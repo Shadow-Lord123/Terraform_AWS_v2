@@ -71,13 +71,13 @@ module "iam_role" {
    admin_user         = var.admin_user 
 }
 
-#module "rds_module" {
-#  source = "./rds_module"
-#  public_subnet_1_id = module.vpc.public_subnet_1_id
-#  public_subnet_2_id = module.vpc.public_subnet_2_id
-#  replica_vpc_id     = module.rds_module.replica_vpc_id
-#  vpc_id                = module.vpc.vpc_id
-#}
+module "rds_module" {
+  source = "./rds_module"
+  public_subnet_1_id = module.vpc.public_subnet_1_id
+  public_subnet_2_id = module.vpc.public_subnet_2_id
+  replica_vpc_id     = module.rds_module.replica_vpc_id
+  vpc_id                = module.vpc.vpc_id
+}
 
 module "elasticache" {
   source = "./elasticache"

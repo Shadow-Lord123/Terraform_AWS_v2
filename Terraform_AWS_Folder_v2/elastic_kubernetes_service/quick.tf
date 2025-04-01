@@ -1,7 +1,4 @@
 
-# This is a file for my eks quick configuration
-# Hello my name is Kritagya
-
 
 resource "aws_iam_role" "eks_role" {
   name = "eks-cluster-role2"
