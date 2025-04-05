@@ -1,7 +1,11 @@
 
+resource "aws_route53_zone" "primary" {
+  name = "kritagya-33.co.uk"
+}
+
 resource "aws_route53_record" "www-dev" {
   zone_id = aws_route53_zone.primary.zone_id
-  name    = "www"
+  name    = "www.kritagya-33.co.uk"
   type    = "CNAME"
   ttl     = 5
 
@@ -10,12 +14,12 @@ resource "aws_route53_record" "www-dev" {
   }
 
   set_identifier = "dev"
-  records        = ["dev.example.com"]
+  records        = ["dev.kritagya-33.co.uk"]
 }
 
 resource "aws_route53_record" "www-live" {
   zone_id = aws_route53_zone.primary.zone_id
-  name    = "www"
+  name    = "www.kritagya-33.co.uk"
   type    = "CNAME"
   ttl     = 5
 
@@ -24,5 +28,5 @@ resource "aws_route53_record" "www-live" {
   }
 
   set_identifier = "live"
-  records        = ["live.example.com"]
+  records        = ["live.kritagya-33.co.uk"]
 }
