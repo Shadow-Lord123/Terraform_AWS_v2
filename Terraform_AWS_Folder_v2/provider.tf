@@ -2,42 +2,31 @@
 terraform {
   required_providers {
     aws = {
-      source = "hashicorp/aws"
-      version = "~> 3.0"  # Specify the version if necessary
+      source  = "hashicorp/aws"
+      version = "~> 3.7"  # Use latest stable version
     }
   }
 }
 
-# Provider for the primary region (eu-west-2)
-#provider "aws" {
-#  region = "eu-west-2"
-#}
-
-# Provider for the replica region (us-east-1)
-#provider "aws" {
-#  alias  = "us-east-1"
-#  region = "us-east-1"
-#}
-
-# Provider for the additional region (us-east-2)
-#provider "aws" {
-#  alias  = "us-east-2"
-#  region = "us-east-2"
-#}
-
-# Provider for the primary region (eu-west-2)
+# Primary AWS Provider (eu-west-2)
 provider "aws" {
-  region = "eu-west-2"
+  region     = "eu-west-2"
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 }
 
-# Provider for the replica region (us-east-1)
+# AWS Provider for Replica Region (us-east-1)
 provider "aws" {
-  alias  = "us-east-1"
-  region = "us-east-1"
+  alias      = "us-east-1"
+  region     = "us-east-1"
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 }
 
-# Provider for the additional region (us-east-2)
+# AWS Provider for Additional Region (us-east-2)
 provider "aws" {
-  alias  = "us-east-2"
-  region = "us-east-2"
+  alias      = "us-east-2"
+  region     = "us-east-2"
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 }

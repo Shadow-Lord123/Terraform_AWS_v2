@@ -73,3 +73,15 @@ variable "admin_user" {
   description = "The IAM user who will have full Kubernetes access"
   type        = string
 }
+
+variable "aws_access_key" {
+  description = "AWS Access Key"
+  type        = string
+  sensitive   = true
+}
+
+variable "aws_secret_key" {
+  description = "AWS Secret Key"
+  type        = string
+  sensitive   = true
+}

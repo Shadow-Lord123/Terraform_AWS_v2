@@ -16,5 +16,7 @@ eks_cluster_name      = "KritagyaTerraformEKS"
 node_group_name       = "KritagyaNodeGroup"
 aws_account_id        = "123456789012"
 admin_user            = "your-iam-username"
+aws_access_key = "AKIATM6L4UM6E2NYW4DL"
+aws_secret_key = "dRM+r+Ks4iou7Hlh4D/JySg8iM6ulwG4Fx2oW4lD"
 
 

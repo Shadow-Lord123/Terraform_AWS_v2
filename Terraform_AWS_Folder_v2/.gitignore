@@ -7,6 +7,7 @@ KeyEC2.pem
 output.json
 KritagyaTerraform-aurora-db-credentials.pem
 .terraform.lock.hcl
+terraform.tfvars
 
 # Terraform directory
 .terraform/
