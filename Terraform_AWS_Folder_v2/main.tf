@@ -99,6 +99,8 @@ module "sns_module" {
   source = "./sns_module"
 }
 
-module "document_db_module" {
-  source = "./document_db"
+module "document_db" {
+  source = "./document_db_module"
+  public_subnet_1_id = module.vpc.public_subnet_1_id
+  public_subnet_2_id = module.vpc.public_subnet_2_id
 }
