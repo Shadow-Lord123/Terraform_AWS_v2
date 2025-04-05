@@ -94,3 +94,11 @@ module "cloudwatch" {
 module "route53" {
   source = "./route53_module"
 }
+
+module "sns_module" {
+  source = "./sns_module"
+}
+
+module "document_db_module" {
+  source = "./document_db"
+}
