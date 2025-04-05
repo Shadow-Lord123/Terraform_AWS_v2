@@ -8,6 +8,7 @@ output.json
 KritagyaTerraform-aurora-db-credentials.pem
 .terraform.lock.hcl
 terraform.tfvars
+*.pem
 
 # Terraform directory
 .terraform/

@@ -11,7 +11,11 @@ resource "aws_docdb_cluster_instance" "cluster_instances" {
   count              = 1
   identifier         = "terraform-docdb-cluster-demo-${count.index}"
   cluster_identifier = aws_docdb_cluster.default.id
-  instance_class     = "db.t3.medium"
+  instance_class     = "db.t3.medium" 
+   tags = {
+    Name        = "DocDB Instance"
+    Environment = "dev"
+  }
 }
 
 resource "aws_docdb_cluster" "default" {
@@ -20,4 +24,6 @@ resource "aws_docdb_cluster" "default" {
   master_username    = "Kritagya"
   master_password    = "MahaPitaji82"
   db_subnet_group_name   = aws_docdb_subnet_group.default.name
+  vpc_security_group_ids  = [aws_security_group.rds_sg.id]
+  skip_final_snapshot     = true
 }
