@@ -114,4 +114,5 @@ module "ecs_module" {
   source = "./ecs_module"
   public_subnet_1_id = module.vpc.public_subnet_1_id
   public_subnet_2_id = module.vpc.public_subnet_2_id
+  vpc_id             = module.vpc.vpc_id 
 } 
