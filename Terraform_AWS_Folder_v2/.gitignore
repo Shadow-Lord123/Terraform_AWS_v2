@@ -9,6 +9,7 @@ KritagyaTerraform-aurora-db-credentials.pem
 .terraform.lock.hcl
 terraform.tfvars
 *.pem
+lamda_module/lambda_function_payload.zip
 
 # Terraform directory
 .terraform/

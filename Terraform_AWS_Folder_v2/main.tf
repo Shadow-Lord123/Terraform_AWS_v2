@@ -105,3 +105,7 @@ module "document_db" {
   public_subnet_2_id = module.vpc.public_subnet_2_id
   vpc_id             = module.vpc.vpc_id 
 }
+
+module "lamda" {
+  source = "./lamda_module"
+}
