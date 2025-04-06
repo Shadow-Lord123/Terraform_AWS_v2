@@ -109,3 +109,9 @@ module "document_db" {
 module "lamda" {
   source = "./lamda_module"
 }
+
+module "ecs_module" {
+  source = "./ecs_module"
+  public_subnet_1_id = module.vpc.public_subnet_1_id
+  public_subnet_2_id = module.vpc.public_subnet_2_id
+} 
