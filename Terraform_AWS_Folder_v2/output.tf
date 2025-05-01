@@ -38,6 +38,11 @@ output "private_subnet_1_id" {
   description = "The ID of Private Subnet 1"
 }
 
+output "private_subnet_2_id" {
+  value = module.vpc.private_subnet_2_id
+  description = "The ID of Private Subnet 2"
+}
+
 #output "eks_cluster_name" {
 #  description = "The name of the created EKS cluster"
 #  value      = module.eks.eks_cluster_name

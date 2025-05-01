@@ -23,6 +23,13 @@ variable "private_subnet_1_id" {
   type        = string
 }
 
+variable "private_subnet_2_id" {
+  description = "ID for the private subnet"
+  type        = string
+}
+
+
+
 
 
 

@@ -24,6 +24,11 @@ output "private_subnet_1_id" {
   description = "The ID of Private Subnet 1"
 }
 
+output "private_subnet_2_id" {
+  value = aws_subnet.mtc_private_subnet.id
+  description = "The ID of Private Subnet 2"
+}
+
 output "public_subnet_2_cidr" {
   value       = aws_subnet.mtc_public_subnet_2.cidr_block
   description = "The CIDR block of Public Subnet 2"

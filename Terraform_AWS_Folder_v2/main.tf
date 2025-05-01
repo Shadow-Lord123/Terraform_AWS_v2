@@ -52,6 +52,7 @@ module "eks" {
   public_subnet_2_id    = module.vpc.public_subnet_2_id
   public_subnet_1_id    = module.vpc.public_subnet_1_id
   private_subnet_1_id   = module.vpc.private_subnet_1_id
+  private_subnet_2_id   = module.vpc.private_subnet_2_id
   eks_cluster_name      = var.eks_cluster_name
   cluster_role_arn      = module.iam_role.eks_cluster_role_arn
 }
@@ -99,12 +100,12 @@ module "sns_module" {
   source = "./sns_module"
 }
 
-module "document_db" {
-  source = "./document_db_module"
-  public_subnet_1_id = module.vpc.public_subnet_1_id
-  public_subnet_2_id = module.vpc.public_subnet_2_id
-  vpc_id             = module.vpc.vpc_id 
-}
+#module "document_db" {
+#  source = "./document_db_module"
+#  public_subnet_1_id = module.vpc.public_subnet_1_id
+#  public_subnet_2_id = module.vpc.public_subnet_2_id
+#  vpc_id             = module.vpc.vpc_id 
+#}
 
 module "lamda" {
   source = "./lamda_module"
@@ -116,3 +117,4 @@ module "ecs_module" {
   public_subnet_2_id = module.vpc.public_subnet_2_id
   vpc_id             = module.vpc.vpc_id 
 } 
+
